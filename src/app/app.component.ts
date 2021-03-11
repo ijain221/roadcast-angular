@@ -9,6 +9,7 @@ import {DateService} from './date.service'
 
 export class AppComponent implements OnInit {
   date: any
+  time: any
   constructor(public DateService: DateService){}
   
 
@@ -17,8 +18,10 @@ export class AppComponent implements OnInit {
   }
 
   getDate(){
-  this.date = this.DateService.getDate()
-   console.log(this.date)
+  this.DateService.getDate().subscribe(res=>{
+    this.date = res
+    console.log(this.date)
+  })
   }
   
 }
